@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Attempt</title>
+</head>
+<body>
+    <h1>ATTEMPT</h1>
+    <hr>
+    <form method="post">
+        {% csrf_token %}
+        {% for question in questions %}
+            <p>{{ question.question_text }}</p>
+            {% for choice in question.choice_set.all %}
+                <input type="radio" id="{{ choice.id }}" name="{{ question.id }}" value="{{ choice.id }}">
+                <label for="{{ choice.id }}">{{ choice.choice_text }}</label><br>
+            {% endfor %}
+        {% endfor %}
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

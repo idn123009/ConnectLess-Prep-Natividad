@@ -1,0 +1,13 @@
+<div class="choice-formset">
+    {{ question_index.management_form }}
+    
+    {% for form in question_index %}
+    	<div class="choice-form">
+            {{ form.as_p }}
+            <label>
+                {{ form.DELETE }} Delete this choice
+            </label>
+        </div>
+    {% endfor %}
+    {{ question_index.empty_form.as_p }}
+</div>
